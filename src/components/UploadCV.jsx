@@ -16,6 +16,7 @@ class counter extends Component {
     const fd = new FormData();
     fd.append("file", this.state.selectedFile);
     console.log(fd);
+    console.log("in fileUploadHandler");
 
     let xhttp = new XMLHttpRequest();
     xhttp.open(

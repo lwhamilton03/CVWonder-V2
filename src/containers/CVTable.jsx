@@ -30,7 +30,6 @@ export default class CVTable extends Component {
 
     xhttp.onload = () => {
       this.setState({ allPeople: xhttp.response });
-      console.log(this.state.allPeople);
     };
   };
 
@@ -52,16 +51,29 @@ export default class CVTable extends Component {
 
     xhttp.onload = () => {
       this.setState({ allPeople: xhttp.response });
-      console.log(this.state.allPeople);
     };
+  };
+
+  checkStatus = item => {
+    if (item.state == "Approved") {
+      return "#2a820d";
+    } else if (item.state == "Unapproved") {
+      return "orange";
+    } else if (item.state == "Flagged") {
+      return "#ed121d";
+    }
   };
 
   render() {
     let animals = this.state.allPeople;
-    console.log(this.state.allPeople);
+
     var counter = 0;
+
     return (
       <Table bordered striped hover condensed>
+        <thead>
+          <th>CVs</th>
+        </thead>
         <tbody>
           {this.state.allPeople.map(
             function(item, key) {
@@ -80,22 +92,12 @@ export default class CVTable extends Component {
                         {item.name}
                       </a>
                     </td>
-                    <td>{item.state}</td>
-                    <td>
-                      {" "}
-                      <Button
-                        className="button"
-                        id={"" + ++counter}
-                        name={"" + counter}
-                        onClick={this.onChangeState}
-                      >
-                        Flag
-                        <img
-                          height="20px"
-                          width="20px"
-                          src="https://steemitimages.com/DQmWmkoSPMJ1JrGvkc5caLQyvBysuRtN8uMhHK1Ajf9BvNw/redflag.png"
-                        />
-                      </Button>
+                    <td
+                      style={{
+                        "background-color": this.checkStatus(item)
+                      }}
+                    >
+                      {item.state}
                     </td>
                   </tr>
                 </div>

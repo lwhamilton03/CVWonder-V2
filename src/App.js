@@ -20,7 +20,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: ""
+      userId: "5bcf46eec2e8250f2c4bdcc1"
     };
   }
 

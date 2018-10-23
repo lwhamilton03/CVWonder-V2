@@ -34,7 +34,7 @@ class TraineePage extends Component {
                 </code>
               </Col>
 
-              <Col xs={12} md={8}>
+              <Col xs={6} md={4}>
                 <Row>
                   <code>
                     <TraineeCVPage userId={this.props.userId} />
