@@ -19,7 +19,6 @@ class CvTable extends Component {
     var t3 = document.getElementById("3");
 
     if (t1 != null) {
-      console.log(this.props.userId);
       t1.addEventListener("click", function() {
         url =
           "http://192.168.1.117:8090/api/people/" +
@@ -56,12 +55,11 @@ class CvTable extends Component {
     xhttp.responseType = "json";
     xhttp.send("Unapproved");
     xhttp.onload = () => {
-      console.log(xhttp.response);
+      // console.log(xhttp.response);
     };
   };
 
   componentDidUpdate = () => {
-    console.log(this.props.userId);
     let request = new XMLHttpRequest();
 
     var url = "http://192.168.1.117:8090/api/" + this.props.userId + "/cvs/";
@@ -103,7 +101,6 @@ class CvTable extends Component {
   //   };
 
   render() {
-    console.log(this.props.userId);
     let counter = 0;
     return (
       <Table bordered striped hover condensed>

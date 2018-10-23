@@ -19,9 +19,10 @@ class counter extends Component {
     console.log("in fileUploadHandler");
 
     let xhttp = new XMLHttpRequest();
+    console.log(this.props.userId);
     xhttp.open(
       "POST",
-      "http://192.168.1.117:8090/api/5bc88e7ac2e8250f2c94bce1/upload"
+      "http://192.168.1.117:8090/api/" + this.props.userId + "/upload"
     );
     //xhttp.setRequestHeader("Content-Type", "multipart/form-data");
     //xhttp.setRequestHeader("Key", "file");

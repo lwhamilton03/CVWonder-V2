@@ -38,7 +38,7 @@ class TraineeCVPage extends Component {
         <tbody>
           <tr>
             <td>
-              <UploadCV />
+              <UploadCV userId={this.props.userId} />
             </td>
           </tr>
         </tbody>
