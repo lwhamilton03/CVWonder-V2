@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import { Table, Image, Button } from "react-bootstrap";
 
 var url;
-var urlone;
+var theId;
+var animals;
+var str;
+var strtwo;
+var strthree;
 
 class CvTable extends Component {
   constructor(props) {
@@ -13,43 +17,29 @@ class CvTable extends Component {
   }
 
   onChangeState = () => {
-    let animals = this.state.allPeople;
-
     var t1 = document.getElementById("1");
     var t2 = document.getElementById("2");
     var t3 = document.getElementById("3");
+    str = this.state.allPeople[0].files_id;
+    strtwo = this.state.allPeople[1].files_id;
+    strthree = this.state.allPeople[2].files_id;
 
-    console.log(animals[0].id);
+    t1.addEventListener("click", function() {
+      url = "http://192.168.1.117:8090/api/people/" + theId + "/state/" + str;
+    });
 
-    if (t1 != null) {
-      t1.addEventListener("click", function() {
-        urlone =
-          "http://192.168.1.117:8090/api/people/" +
-          this.props.userId +
-          "/state/" +
-          animals[0].files_id;
-      });
-    }
-    if (t2 != null) {
-      t2.addEventListener("click", function() {
-        urlone =
-          "http://192.168.1.117:8090/api/people/" +
-          this.props.userId +
-          "/state/" +
-          animals[1].files_id;
-      });
-    }
-    if (t3 != null) {
-      t3.addEventListener("click", function() {
-        urlone =
-          "http://192.168.1.117:8090/api/people/" +
-          this.props.userId +
-          "/state/" +
-          animals[2].files_id;
-      });
-    }
+    t2.addEventListener("click", function() {
+      url =
+        "http://192.168.1.117:8090/api/people/" + theId + "/state/" + strtwo;
+    });
+
+    t3.addEventListener("click", function() {
+      url =
+        "http://192.168.1.117:8090/api/people/" + theId + "/state/" + strthree;
+    });
+
     let xhttp = new XMLHttpRequest();
-    xhttp.open("GET", urlone);
+    xhttp.open("GET", url);
     xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhttp.setRequestHeader(
       "Access-Control-Allow-Methods",
@@ -105,6 +95,7 @@ class CvTable extends Component {
 
   render() {
     let counter = 0;
+    theId = this.props.userId;
     return (
       <Table bordered striped hover condensed>
         <thead>
