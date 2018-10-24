@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import NavBarFeatures from "./containers/NavBarFeatures";
-
+// import Category from "./Category";
+// import Products from "./Products";
+// import Adduser from "./Adduser";
+// import Login, {fakeAuth} from "./Login";
+// import login from "./login2";
 import {
   BrowserRouter as Router,
   Route,
@@ -20,7 +24,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: "5bcf46eec2e8250f2c4bdcc1"
+      userId: ""
     };
   }
 

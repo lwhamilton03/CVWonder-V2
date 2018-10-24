@@ -92,12 +92,16 @@ export default class CVTable extends Component {
                         {item.name}
                       </a>
                     </td>
+
                     <td
                       style={{
                         "background-color": this.checkStatus(item)
                       }}
                     >
                       {item.state}
+                    </td>
+                    <td>
+                      <Button bsStyle="info">Delete</Button>
                     </td>
                   </tr>
                 </div>

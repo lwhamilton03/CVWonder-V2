@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Table, Image, Button } from "react-bootstrap";
 
 var url;
+var urlone;
 
 class CvTable extends Component {
   constructor(props) {
@@ -18,9 +19,11 @@ class CvTable extends Component {
     var t2 = document.getElementById("2");
     var t3 = document.getElementById("3");
 
+    console.log(animals[0].id);
+
     if (t1 != null) {
       t1.addEventListener("click", function() {
-        url =
+        urlone =
           "http://192.168.1.117:8090/api/people/" +
           this.props.userId +
           "/state/" +
@@ -29,7 +32,7 @@ class CvTable extends Component {
     }
     if (t2 != null) {
       t2.addEventListener("click", function() {
-        url =
+        urlone =
           "http://192.168.1.117:8090/api/people/" +
           this.props.userId +
           "/state/" +
@@ -38,7 +41,7 @@ class CvTable extends Component {
     }
     if (t3 != null) {
       t3.addEventListener("click", function() {
-        url =
+        urlone =
           "http://192.168.1.117:8090/api/people/" +
           this.props.userId +
           "/state/" +
@@ -46,14 +49,14 @@ class CvTable extends Component {
       });
     }
     let xhttp = new XMLHttpRequest();
-    xhttp.open("POST", url);
+    xhttp.open("GET", urlone);
     xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhttp.setRequestHeader(
       "Access-Control-Allow-Methods",
       "GET, POST, PUT, DELETE, OPTIONS, HEAD"
     );
     xhttp.responseType = "json";
-    xhttp.send("Unapproved");
+    xhttp.send();
     xhttp.onload = () => {
       // console.log(xhttp.response);
     };

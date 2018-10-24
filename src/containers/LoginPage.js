@@ -41,7 +41,7 @@ class LoginPage extends Component {
 
   async componentDidMount() {
     const response = await fetch("/api/people");
-    const body = await response.json();
+    const body = await response.text();
     this.setState({ people: body, isLoading: false });
   }
 
